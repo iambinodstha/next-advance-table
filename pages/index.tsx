@@ -177,6 +177,12 @@ export default function Home() {
               )
             })}
 
+            {page.length === 0 && (
+              <div>
+                <h1>No data found</h1>
+              </div>
+            )}
+
           </div>
         </div>
       </div>

@@ -205,6 +205,6 @@ SelectFilter.displayName = 'SelectFilter';
 SelectDateFilter.displayName = 'SelectDateFilter';
 DefaultColumnFilter.displayName = 'DefaultColumnFilter';
 
-export default function() {
+export default function TableFilter() {
     return "";
 }
