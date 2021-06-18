@@ -11,12 +11,14 @@ interface Props {
 const TableSort = ({ column }: Props) => {
     return (
         <span>
-            {(!column.isSorted || !column.isSortedDesc) && <Image src={caretUp} alt="caret-down" />}
-            {(!column.isSorted || column.isSortedDesc) && <Image src={caretDown} alt="caret-down" />}
+            {(!column?.isSorted || !column?.isSortedDesc) && <Image src={caretUp} alt="caret-down" />}
+            {(!column?.isSorted || column?.isSortedDesc) && <Image src={caretDown} alt="caret-down" />}
 
             {/* {(column.isSorted) && <Image src={!column.isSortedDesc ? caretUp : caretDown} alt="caret-down" />} */}
         </span>
     )
 }
 
-export default TableSort
+export default TableSort;
+
+TableSort.displayName = "TableSort"

@@ -125,13 +125,14 @@ export default function Home() {
 
         <div {...getTableProps()} className={styles.table}>
           <div className={styles.thead}>
-            {headerGroups.map(headerGroup => (
+            {headerGroups.map((headerGroup, index) => (
               <div
                 {...headerGroup.getHeaderGroupProps()}
                 className={styles.tr}
+                key={index}
               >
-                {headerGroup.headers.map(column => (
-                  <div {...column.getHeaderProps()} className={styles.th}>
+                {headerGroup.headers.map((column, index) => (
+                  <div {...column.getHeaderProps()} className={styles.th} key={index}>
                     <div {...column.getSortByToggleProps()} className={styles.innerTh}>
                       {column.render('Header')}
                       <TableSort column={column} />
@@ -158,9 +159,9 @@ export default function Home() {
               return (
                 <React.Fragment key={row.id}>
                   <div {...row.getRowProps()} className={styles.tr}>
-                    {row.cells.map(cell => {
+                    {row.cells.map((cell, index) => {
                       return (
-                        <div {...cell.getCellProps(cellProps)} className={styles.td}>
+                        <div {...cell.getCellProps(cellProps)} className={styles.td} key={index}>
                           {cell.render('Cell')}
                         </div>
                       )
@@ -198,3 +199,5 @@ export default function Home() {
     </div>
   )
 }
+
+Home.displayName = 'Home';

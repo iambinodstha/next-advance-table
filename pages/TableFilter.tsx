@@ -198,3 +198,13 @@ export function SliderColumnFilter({
         </>
     )
 }
+
+SliderColumnFilter.displayName = 'SliderColumnFilter';
+NumberRangeColumnFilter.displayName = 'NumberRangeColumnFilter';
+SelectFilter.displayName = 'SelectFilter';
+SelectDateFilter.displayName = 'SelectDateFilter';
+DefaultColumnFilter.displayName = 'DefaultColumnFilter';
+
+export default function() {
+    return "";
+}

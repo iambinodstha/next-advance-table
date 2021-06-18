@@ -15,6 +15,17 @@ interface Props {
   pageSize: number
 }
 
+const selectStyles = {
+  control: (base: any) => ({
+    ...base,
+    minWidth: "160px",
+  }),
+  option: (base: any) => ({
+    ...base,
+    color: "#333",
+  }),
+};
+
 const TablePagination = React.memo((props: Props) => {
   const {
     canPreviousPage,
@@ -24,7 +35,7 @@ const TablePagination = React.memo((props: Props) => {
     gotoPage,
     nextPage,
     previousPage,
-    setPageSize, pageIndex, pageSize } = props;
+    setPageSize, pageIndex } = props;
   return (
     <div className={styles.pagination}>
       <div>
@@ -41,15 +52,15 @@ const TablePagination = React.memo((props: Props) => {
           {'>>'}
         </button>{' '}
 
-        <span style={{marginLeft: "10px"}}>
+        <span style={{ marginLeft: "10px" }}>
           Page{' '}
           <strong>
-            {pageIndex + 1} of {pageOptions.length}
+            {pageIndex + 1} of {pageOptions?.length}
           </strong>{' '}
         </span>
       </div>
 
-      <div style={{display: 'flex', alignItems: 'center'}}>
+      <div style={{ display: 'flex', alignItems: 'center' }}>
         <span>
           Go to page:
         </span>
@@ -69,7 +80,7 @@ const TablePagination = React.memo((props: Props) => {
           instanceId="show-rows"
           className="react-select-container"
           classNamePrefix='filter'
-          options={[10, 20, 30, 40, 50].map(value=> ({label: `Show ${value}`, value}))}
+          options={[10, 20, 30, 40, 50].map(value => ({ label: `Show ${value}`, value }))}
           onChange={(e: any) => {
             setPageSize(Number(e.value))
           }}
@@ -92,13 +103,4 @@ const TablePagination = React.memo((props: Props) => {
 
 export default TablePagination;
 
-const selectStyles = {
-  control: (base: any) => ({
-      ...base,
-      minWidth: "160px",
-  }),
-  option: (base: any) => ({
-      ...base,
-      color: "#333",
-  }),
-};
+TablePagination.displayName = 'TablePagination';
